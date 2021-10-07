@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello world</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <form action="/createBook" method="POST">
+                    <label class="form-label">Libros</label>
+                    <input type="text" name="libro" class="form-control">
+                    <label class="form-label">Autores</label>
+                    <select name="autor" class="form-select">
+                        {% for author in authors %}
+                            <option value="{{ author[0] }}">{{ author[1] }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" class="btn btn-primary form-control" value="Submit">
+                </form>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <td>Nombre de libro</td>
+                <td>Estado</td>
+                <td colspan="2" class="text-center">Acciones</td>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book[0] }}</td>
+                        <td>{{ book[1] }}</td>
+                        <td>{{ book[2] }}</td>
+                        <td><a href="/infoBook/{{ book[0] }}" class="btn btn-info">Update</a></td>
+                        <td><a href="/deleteBook/{{ book[0] }}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
