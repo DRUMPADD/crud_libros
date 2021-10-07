@@ -8,4 +8,4 @@ python app.py
 
 
 ### Flask
-<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Documentation</a>
+<a href="https://flask.palletsprojects.com/en/2.0.x/">Documentation</a>
